@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export NNN_FIFO=/tmp/nnn.fifo 
+
+source $HOME/.config/nnn/plugins.sh
+source $HOME/.config/nnn/quitcd.bash_zsh
