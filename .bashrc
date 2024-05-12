@@ -1,16 +1,8 @@
 # .bashrc
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	source /etc/bashrc
-fi
-if [ -f .profile ]; then
-	source .profile
-fi
-
 # Source NNN config
-if [ -r "$HOME/.config/nnn/nnn.source" ]; then
-	source "$HOME/.config/nnn/nnn.source"
+if [ -r "$XDG_CONFIG_HOME/nnn/nnn.source" ]; then
+	source "$XDG_CONFIG_HOME/nnn/nnn.source"
 fi
 
 #Prompt
