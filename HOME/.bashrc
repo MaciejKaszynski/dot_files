@@ -1,8 +1,8 @@
 # .bashrc
 
 # Source NNN config
-if [ -r "$XDG_CONFIG_HOME/nnn/nnn.source" ]; then
-	source "$XDG_CONFIG_HOME/nnn/nnn.source"
+if [ -r "$HOME/.config/nnn/nnn.source" ]; then
+	source "$HOME/.config/nnn/nnn.source"
 fi
 
 #Prompt

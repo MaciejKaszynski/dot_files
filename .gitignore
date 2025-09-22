@@ -1,1 +1,6 @@
 lazy-lock.json
+**/tmux/plugins/*
+
+.zsh_history
+**/.zsh_sessions/
+.zcompdump
