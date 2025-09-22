@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on = ["z", "z"]
+run = "plugin compress"
+desc = "Copy the content of the file"

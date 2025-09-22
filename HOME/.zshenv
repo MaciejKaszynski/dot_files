@@ -1,0 +1,5 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
+export TERMINAL="kitty"

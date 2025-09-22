@@ -1,0 +1,42 @@
+# Don't add a blank line before the prompt (keeps everything on one line)
+add_newline = false
+
+# Left side format: <user>@<host> <shortened path> $
+format = "$username$hostname$directory$character"
+
+# Right side format: git branch (only if in a git repo)
+right_format = "$git_branch"
+
+# Always show username
+[username]
+show_always = true
+style_user = "green bold"  # Style for non-root user
+style_root = "red bold"    # Style if you're root
+format = "[$user]($style)" # Output: <user>
+
+# Always show hostname (even in local sessions)
+[hostname]
+ssh_only = false
+format = "@[$hostname]($style) " # Output: @<host> (with space after)
+style = "blue bold"
+
+# Shortened current directory (truncate long paths to 3 dirs, show ~ for home)
+[directory]
+truncation_length = 3          # Truncate to last 3 directories (e.g., ~/.../dir1/dir2/dir3)
+truncation_symbol = ""       # Symbol for truncated parts
+truncate_to_repo = true        # Stop truncating at git repo root
+home_symbol = "~"              # Symbol for home directory
+style = "cyan"                 # Color for the path
+format = "[$path]($style) "    # Output: <shortened path> (with space after)
+
+# Prompt character ($ for normal, # for root)
+[character]
+success_symbol = "[\\$](white)"  # Normal prompt: $
+error_symbol = "[x](red bold)" # If last command failed: x (you can customize)
+vicmd_symbol = "[V](green)"    # Vi mode indicator (if using vi keybindings)
+
+# Git branch on the right (only shows in git repos)
+[git_branch]
+symbol = ""                    # No extra symbol, just the branch name
+style = "purple"               # Purple color for branch
+format = "[$branch]($style)"   # Output: <branch> (e.g., main)
