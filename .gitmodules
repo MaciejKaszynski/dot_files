@@ -1,6 +1,3 @@
-[submodule "HOME/.config/alacritty/themes/rose-pine"]
-	path = HOME/.config/alacritty/themes/rose-pine
-	url = git@github.com:rose-pine/alacritty.git
 [submodule "HOME/.config/nvim/lua/nvim_config"]
 	path = HOME/.config/nvim
-	url = git@github.com:le1iel/nvim_config.git
+	url = https://github.com/le1iel/nvim_config.git
