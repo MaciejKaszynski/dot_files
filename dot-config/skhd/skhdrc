@@ -1,4 +1,4 @@
-alt - return : open -na wezterm
+alt - return : open -na ghostty
 alt + shift - q : yabai -m window --close
 
 fn - 3 : skhd -t "#"
