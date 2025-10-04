@@ -4,4 +4,4 @@
 Use `stow` to easily deploy links.
 
 e.g.
-`stow -t ~ .`
+`stow --dotfiles -t ~ . --ignore "README\.md|install\.sh"`
