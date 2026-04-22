@@ -3,12 +3,12 @@ local act = wezterm.action
 
 local M = {
     {
-        key = "|",
+        key = "v",
         mods = "LEADER",
         action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
     },
     {
-        key = "-",
+        key = "s",
         mods = "LEADER",
         action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
     },
@@ -29,6 +29,36 @@ local M = {
             end),
         }),
     },
+    { key = 'l', mods = 'ALT', action = wezterm.action.ShowLauncher },
+
+    {
+        key = "h",
+        mods = "LEADER",
+        action = wezterm.action_callback(function(win, pane)
+            win:perform_action({ ActivatePaneDirection = "Left" }, pane)
+        end),
+    },
+    {
+        key = "j",
+        mods = "LEADER",
+        action = wezterm.action_callback(function(win, pane)
+            win:perform_action({ ActivatePaneDirection = "Down" }, pane)
+        end),
+    },
+    {
+        key = "k",
+        mods = "LEADER",
+        action = wezterm.action_callback(function(win, pane)
+            win:perform_action({ ActivatePaneDirection = "Up" }, pane)
+        end),
+    },
+    {
+        key = "l",
+        mods = "LEADER",
+        action = wezterm.action_callback(function(win, pane)
+            win:perform_action({ ActivatePaneDirection = "Right" }, pane)
+        end),
+    }
 }
 
 local function split_nav(key)
@@ -52,5 +82,6 @@ for i = 1, 9 do
         action = act.ActivateTab(i - 1),
     })
 end
+
 
 return M
