@@ -1,10 +1,28 @@
-source $XDG_CONFIG_HOME/yazi/quit.source
-source $XDG_CONFIG_HOME/zsh/fzf-config.sh
+autoload -Uz compinit
+compinit
 
-# export PS1="%{$(tput setaf 226)%}%n%{$(tput setaf 220)%}@%{$(tput setaf 214)%}%m %{$(tput setaf 33)%}%1~ %{$(tput sgr0)%}$ "
-# PROMPT="%F{blue}%n%f%F{cyan}@%f%m %~"
-PROMPT="%F{blue}%n%f%F{magenta}@%f%F{yellow}%m%f %F{magenta}%~%f%F{white} $ %f"
+if [[ -r "$XDG_CONFIG_HOME/yazi/quit.source" ]]; then
+    source $XDG_CONFIG_HOME/yazi/quit.source
+fi
 
-alias cat="bat"
+# starship prompt
+if command -v starship &>/dev/null; then
+    eval "$(starship init zsh)"
+fi
 
-eval "$(fzf --zsh)"
+# setup fzf
+if command -v fzf &>/dev/null; then
+    eval "$(fzf --zsh)"
+fi
+
+if [[ -r "$XDG_CONFIG_HOME/zsh/fzf-config.sh" ]]; then
+    source $XDG_CONFIG_HOME/zsh/fzf-config.sh
+fi
+
+if [[ "$(uname -o)" == "Darwin" ]]; then
+    alias ldd="otool -L"
+fi
+
+if [[ -r "$HOME/.cargo/env" ]]; then
+    source "$HOME/.cargo/env"
+fi
