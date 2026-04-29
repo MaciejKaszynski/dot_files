@@ -4,3 +4,5 @@ lazy-lock.json
 .zsh_history
 **/.zsh_sessions/
 .zcompdump
+dot-config/zsh/secrets.sh
+dot-config/zsh/completions/
