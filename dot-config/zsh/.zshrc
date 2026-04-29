@@ -1,3 +1,7 @@
+if [[ -r "$XDG_CONFIG_HOME/zsh/completions" ]]; then
+    fpath=($XDG_CONFIG_HOME/zsh/completions $fpath)
+fi
+
 autoload -Uz compinit
 compinit
 
@@ -19,10 +23,18 @@ if [[ -r "$XDG_CONFIG_HOME/zsh/fzf-config.sh" ]]; then
     source $XDG_CONFIG_HOME/zsh/fzf-config.sh
 fi
 
+if [[ -r "$XDG_CONFIG_HOME/zsh/secrets.sh" ]]; then
+    source "$XDG_CONFIG_HOME/zsh/secrets.sh"
+fi
+
 if [[ "$(uname -o)" == "Darwin" ]]; then
     alias ldd="otool -L"
 fi
 
 if [[ -r "$HOME/.cargo/env" ]]; then
     source "$HOME/.cargo/env"
+fi
+
+if [[ -r "$HOME/.local/bin" ]]; then
+    export PATH="$PATH:$HOME/.local/bin"
 fi
