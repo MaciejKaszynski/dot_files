@@ -6,3 +6,6 @@ lazy-lock.json
 .zcompdump
 dot-config/zsh/secrets.sh
 dot-config/zsh/completions/
+**/.zcompcache/
+
+nix/result
