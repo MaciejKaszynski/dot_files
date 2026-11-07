@@ -2,3 +2,8 @@
 on = ["z", "z"]
 run = "plugin compress"
 desc = "Copy the content of the file"
+
+[[mgr.prepend_keymap]]
+on = "n"
+run = "shell 'neovide \"$PWD\"' --orphan"
+desc = "Open current directory in Neovide"

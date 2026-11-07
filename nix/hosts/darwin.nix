@@ -1,4 +1,4 @@
-{ pkgs, self, ... }:
+{ config, pkgs, self, ... }:
 {
     imports = [ ./common.nix ];
 
@@ -12,6 +12,13 @@
     users.users.maciej = {
         name = "maciej";
         home = "/Users/maciej";
+    };
+
+    # launched apps don't read ~/.zshenv, so give them the
+    # same cargo/rustup locations
+    launchd.user.envVariables = {
+        CARGO_HOME = "${config.users.users.maciej.home}/.local/share/cargo";
+        RUSTUP_HOME = "${config.users.users.maciej.home}/.local/share/rustup";
     };
 
     environment.systemPackages = [

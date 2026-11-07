@@ -11,12 +11,6 @@
         pkgs.duti
     ];
 
-    # Personal scripts live in dot_files/bin; link them into ~/.local/bin.
-    # (Out-of-store symlink: edits to the script apply without a rebuild.)
-    home.file.".local/bin/mount_share".source =
-        config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/.local/share/dot_files/bin/mount_share";
-
     targets.darwin.linkApps.enable = false;
     targets.darwin.copyApps.enable = true;
 

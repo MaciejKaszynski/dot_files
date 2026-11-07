@@ -1,4 +1,6 @@
-start-at-login = false 
+config-version = 2
+start-at-login = true 
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 # Layout - BSP equivalent in AeroSpace is "tiles" (binary space partitioning)
 default-root-container-layout = 'tiles'

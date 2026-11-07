@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+    imports = [ ./dotfiles.nix ];
+
     programs.home-manager.enable = true;
 
     home.packages = [
@@ -7,6 +9,7 @@
         pkgs.claude-code
         pkgs.delta
         pkgs.doxygen
+        pkgs.ffmpeg
         pkgs.fzf
         pkgs.gh
         pkgs.gnupg
