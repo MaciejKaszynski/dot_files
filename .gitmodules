@@ -1,3 +1,9 @@
 [submodule "dot-config/nvim"]
 	path = dot-config/nvim
 	url = https://github.com/MaciejKaszynski/nvim_config.git
+[submodule "dot-config/zsh/plugins/zsh-autosuggestions"]
+	path = dot-config/zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "dot-config/zsh/plugins/fzf-git.sh"]
+	path = dot-config/zsh/plugins/fzf-git.sh
+	url = https://github.com/junegunn/fzf-git.sh
