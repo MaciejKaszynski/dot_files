@@ -30,7 +30,10 @@
         pkgs.vscodium
     ];
 
-    fonts.packages = [ pkgs.nerd-fonts.iosevka ];
+    fonts.packages = [
+        pkgs.nerd-fonts.iosevka
+        pkgs.maple-mono.NF
+    ];
 
     homebrew = {
         enable = true;

@@ -3,7 +3,9 @@ let
     dotfiles = "${config.home.homeDirectory}/.local/share/dot_files";
     link = path: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${path}";
 
-    scripts = lib.filterAttrs (_: type: type == "regular") (builtins.readDir "${dotfilesSrc}/bin");
+    binDir = "${dotfilesSrc}/bin";
+    scripts = lib.optionalAttrs (builtins.pathExists binDir)
+        (lib.filterAttrs (_: type: type == "regular") (builtins.readDir binDir));
     binLinks = lib.mapAttrs'
         (name: _: lib.nameValuePair ".local/bin/${name}" { source = link "bin/${name}"; })
         scripts;
