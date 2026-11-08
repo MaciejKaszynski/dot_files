@@ -5,3 +5,6 @@ export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
+
+[[ -r /etc/profile.d/nix-daemon.sh ]] && . /etc/profile.d/nix-daemon.sh
+[[ -r "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]] && . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"

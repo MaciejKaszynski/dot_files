@@ -1,4 +1,4 @@
-{ config, lib, dotfilesSrc, ... }:
+{ config, lib, pkgs, dotfilesSrc, ... }:
 let
     dotfiles = "${config.home.homeDirectory}/.local/share/dot_files";
     link = path: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${path}";
@@ -12,7 +12,6 @@ let
 in
 {
     xdg.configFile = {
-        "aerospace".source     = link "dot-config/aerospace";
         "ghostty".source       = link "dot-config/ghostty";
         "nix".source           = link "nix";
         "nvim".source          = link "dot-config/nvim";
@@ -20,6 +19,8 @@ in
         "wezterm".source       = link "dot-config/wezterm";
         "yazi".source          = link "dot-config/yazi";
         "zsh".source           = link "dot-config/zsh";
+    } // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
+        "aerospace".source     = link "dot-config/aerospace";
     };
 
     # ~/<name>

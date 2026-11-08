@@ -10,11 +10,26 @@
     };
 
     outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+    let
+        # set `gui = false` on a config to leave out all GUI apps
+        optionalGui = gui: file: nixpkgs.lib.optional gui file;
+    in
     {
+        homeConfigurations."maciej@linux" = home-manager.lib.homeManagerConfiguration {
+            pkgs = import nixpkgs {
+                system = "x86_64-linux";
+                config.allowUnfree = true;
+            };
+            extraSpecialArgs = { dotfilesSrc = self.sourceInfo.outPath; };
+            modules = [ ./home/linux.nix ]
+                ++ optionalGui false ./gui/linux.nix;
+        };
+
         darwinConfigurations."Macbook" = nix-darwin.lib.darwinSystem {
             specialArgs = { inherit self; };
             modules = [
                 ./hosts/darwin.nix
+            ] ++ optionalGui true ./gui/darwin.nix ++ [
                 home-manager.darwinModules.home-manager
                 {
                     home-manager.useGlobalPkgs = true;

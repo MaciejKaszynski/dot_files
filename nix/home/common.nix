@@ -16,9 +16,12 @@
         pkgs.imagemagick
         pkgs.jq
         pkgs.just
+        pkgs.ncdu
         pkgs.neovim
+        pkgs.pre-commit
         pkgs.ripgrep
         pkgs.starship
+        pkgs.tree-sitter
         pkgs.yazi
         pkgs.yt-dlp
 
@@ -32,8 +35,10 @@
         pkgs.yaml-language-server
 
         # toolchains
+        pkgs.bazelisk
         pkgs.clang
         pkgs.cmake
+        pkgs.lcov
         pkgs.llvm
         pkgs.python314
         pkgs.rustup
