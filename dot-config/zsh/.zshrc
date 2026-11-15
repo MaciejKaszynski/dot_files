@@ -19,6 +19,16 @@ if [[ -d "$ZDOTDIR/completions" ]]; then
     fpath=("$ZDOTDIR/completions" $fpath)
 fi
 
+# navigation
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt INTERACTIVE_COMMENTS
+
+# completion
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 autoload -Uz compinit
 () {
     setopt local_options extended_glob
@@ -46,4 +56,9 @@ fi
 
 if command -v starship &>/dev/null; then
     eval "$(starship init zsh)"
+fi
+
+# must be sourced last
+if [[ -r "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+    source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi

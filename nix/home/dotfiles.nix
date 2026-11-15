@@ -15,6 +15,7 @@ in
         "ghostty".source       = link "dot-config/ghostty";
         "nix".source           = link "nix";
         "nvim".source          = link "dot-config/nvim";
+        "snippets".source      = link "dot-config/snippets";
         "starship.toml".source = link "dot-config/starship.toml";
         "wezterm".source       = link "dot-config/wezterm";
         "yazi".source          = link "dot-config/yazi";

@@ -9,6 +9,7 @@
         pkgs.claude-code
         pkgs.delta
         pkgs.doxygen
+        pkgs.fd
         pkgs.ffmpeg
         pkgs.fzf
         pkgs.gh
@@ -16,6 +17,7 @@
         pkgs.imagemagick
         pkgs.jq
         pkgs.just
+        pkgs.lazygit
         pkgs.ncdu
         pkgs.neovim
         pkgs.ripgrep

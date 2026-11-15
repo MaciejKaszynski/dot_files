@@ -7,3 +7,9 @@
 [submodule "dot-config/zsh/plugins/fzf-git.sh"]
 	path = dot-config/zsh/plugins/fzf-git.sh
 	url = https://github.com/junegunn/fzf-git.sh
+[submodule "dot-config/zsh/plugins/zsh-syntax-highlighting"]
+	path = dot-config/zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "dot-config/snippets"]
+	path = dot-config/snippets
+	url = https://github.com/MaciejKaszynski/snippets.git
