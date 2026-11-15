@@ -18,7 +18,6 @@
         pkgs.just
         pkgs.ncdu
         pkgs.neovim
-        pkgs.pre-commit
         pkgs.ripgrep
         pkgs.starship
         pkgs.tree-sitter
