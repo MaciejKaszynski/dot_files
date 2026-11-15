@@ -4,8 +4,17 @@ elif command -v brew &>/dev/null; then
     eval "$(brew shellenv)"
 fi
 
-if [[ -d "$CARGO_HOME/bin" ]]; then
-    path+=("$CARGO_HOME/bin")
-fi
+# -p if prepend
+add-path() {
+    local prepend=0
+    if [[ $1 == -p ]]; then prepend=1; shift; fi
+    local dir="${1%/}"
+    [[ -d "$dir" && -x "$dir" ]] || return 0
+    (( ${path[(Ie)$dir]} )) && return 0
+    if (( prepend )); then path=("$dir" $path); else path+=("$dir"); fi
+}
 
-path=("$HOME/.local/bin" $path)
+add-path "$CARGO_HOME/bin"
+add-path -p "$HOME/.local/bin"
+
+unfunction add-path

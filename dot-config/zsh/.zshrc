@@ -47,7 +47,3 @@ fi
 if command -v starship &>/dev/null; then
     eval "$(starship init zsh)"
 fi
-
-if [[ -r "$HOME/.local/bin" ]]; then
-    export PATH="$PATH:$HOME/.local/bin"
-fi
