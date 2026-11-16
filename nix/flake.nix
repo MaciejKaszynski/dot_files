@@ -24,6 +24,20 @@
             modules = [ ./home/linux.nix ]
                 ++ optionalGui false ./gui/linux.nix;
         };
+        homeConfigurations."maciej@wsl" = home-manager.lib.homeManagerConfiguration {
+            pkgs = import nixpkgs {
+                system = "x86_64-linux";
+                config.allowUnfree = true;
+            };
+            extraSpecialArgs = { dotfilesSrc = self.sourceInfo.outPath; };
+            modules = [
+                ./home/linux.nix
+                ({ lib, ... }: {
+                    home.username = lib.mkForce "kam1yok";
+                    home.homeDirectory = lib.mkForce "/home/kam1yok";
+                })
+            ] ++ optionalGui false ./gui/linux.nix;
+        };
 
         darwinConfigurations."Macbook" = nix-darwin.lib.darwinSystem {
             specialArgs = { inherit self; };
