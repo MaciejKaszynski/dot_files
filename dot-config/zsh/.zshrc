@@ -62,3 +62,7 @@ fi
 if [[ -r "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
     source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
+
+if [[ -r "/etc/profile.d/cntlm.sh" ]]; then
+    source /etc/profile.d/cntlm.sh
+fi
